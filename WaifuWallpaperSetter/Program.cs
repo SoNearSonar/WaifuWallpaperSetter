@@ -88,16 +88,14 @@ try
     Console.WriteLine("Checking if \"userfit\" or \"autofit\" command line option was set\n");
     Wallpaper.Style style = Wallpaper.Style.Fill;
 
+    if (image.Height > image.Width)
+    {
+        style = Wallpaper.Style.Fit;
+    }
+
     if (arguments.Fit.HasValue)
     {
         style = arguments.Fit.Value;
-    }
-    else if (arguments.AutoFit && arguments.AutoFit)
-    {
-        if (image.Width > image.Height)
-        {
-            style = Wallpaper.Style.Fit;
-        }
     }
 
     // Set the desktop wallpaper
