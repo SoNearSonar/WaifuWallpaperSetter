@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Runtime.InteropServices;
 
-
 /*
  * Credit to: https://stackoverflow.com/users/4792350/badsamaritan
  * From: https://stackoverflow.com/a/40950312
@@ -30,6 +29,7 @@ public sealed class Wallpaper
     public static void Set(string imagePath, Style style)
     {
         RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+
         if (style == Style.Fill)
         {
             key.SetValue(@"WallpaperStyle", "10");
