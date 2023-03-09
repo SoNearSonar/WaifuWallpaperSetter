@@ -10,7 +10,6 @@ CommandLineOptions arguments = null;
 
 Console.WriteLine("WaifuWallpaperSetter by SoNearSonar (https://github.com/SoNearSonar)\n");
 
-// Grabs all command line options that were passed in
 Parser.Default.ParseArguments<CommandLineOptions>(args)
 .WithParsed(options => {
     settings = new WaifuImSearchSettings()
@@ -21,7 +20,6 @@ Parser.Default.ParseArguments<CommandLineOptions>(args)
         IsNsfw = options.IsNsfw,
         OnlyGif = options.OnlyGif,
         Orientation = options.Orientation,
-        ManyFiles = options.ManyFiles,
         IncludedFiles = options.IncludedFiles.ToArray(),
         ExcludedFiles = options.ExcludedFiles.ToArray(),
     };
@@ -33,7 +31,8 @@ Parser.Default.ParseArguments<CommandLineOptions>(args)
     {
         Console.WriteLine(builder.FormatError(err));
     }
-    Console.WriteLine("Press any key to exit.");
+    Console.ReadKey();
+    Environment.Exit(0);
 });
 
 // Checks if the OS is Windows and the version is Windows 8 or higher
@@ -43,7 +42,6 @@ bool isNotCompatibleWindowsPlatform = Environment.OSVersion.Version.Major + Envi
 if (isNotWindowsPlatform || isNotCompatibleWindowsPlatform)
 {
     Console.WriteLine("You can only run this program on Windows 8 or later");
-    Console.WriteLine("Press any key to exit.");
     Console.ReadKey();
     Environment.Exit(0);
 }
@@ -54,7 +52,6 @@ Random randomImageNumber = new Random();
 
 try
 {
-    // Contacts the API to get an image object that is used in the program for wallpaper setting
     if (arguments != null && arguments.OnlyFavorites.HasValue && !string.IsNullOrWhiteSpace(arguments.Token))
     {
         Console.WriteLine("Getting wallpaper from your favorites on Waifu.Im\n");
@@ -67,25 +64,15 @@ try
     }
 
     WaifuImImage image = imageList.Images[randomImageNumber.Next(imageList.Images.Count)];
-
-    // Checks if the user only wants .GIF files to be returned
-    Console.WriteLine("Checking if \"gif\" command line option was set\n");
     string extension = (arguments.OnlyGif.HasValue && arguments.OnlyGif.HasValue) ? ".gif" : image.Extension;
-
-
-    // Checks if the user wanted to save the location of the image somewhere else other than desktop
-    Console.WriteLine("Checking if \"imageloc\" command line option was set\n");
     string location = !string.IsNullOrWhiteSpace(arguments.ImageLocation) && Directory.Exists(arguments.ImageLocation) ? arguments.ImageLocation : Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-    string path = Path.Combine(location, $"image{extension}");
+    string path = Path.Combine(location, $"image_{image.ImageId}{extension}");
 
-    // Download the image from waifu.im and save it to disk
     Console.WriteLine($"Downloading image from Waifu.Im with image URL of \"{image.Url}\" to \"{path}\"\n");
     HttpClient httpClient = new HttpClient();
     byte[] wallpaperImage = await httpClient.GetByteArrayAsync(image.Url);
     await File.WriteAllBytesAsync(path, wallpaperImage);
 
-    // Determine if the image should be forced to resize on desktop or automatically resize to appropriorate fit
-    Console.WriteLine("Checking if \"userfit\" or \"autofit\" command line option was set\n");
     Wallpaper.Style style = Wallpaper.Style.Fill;
 
     if (image.Height > image.Width)
@@ -98,18 +85,35 @@ try
         style = arguments.Fit.Value;
     }
 
-    // Set the desktop wallpaper
     Console.WriteLine($"Setting wallpaper with fit of \"{style}\" to image from \"{path}\"\n");
     Wallpaper.Set(path, style);
 
-    Console.WriteLine($"Desktop wallpaper has been set!\n");
-    Console.WriteLine("Press any key to exit.");
-    Console.ReadKey();
+    Console.Write("Would you like to add/remove this image from your favorites? (Type y or n)\nYour choice: ");
+    char c = Console.ReadKey().KeyChar;
+    Console.WriteLine();
+    Console.WriteLine();
+
+    if (c.ToString().ToLowerInvariant().Equals("y"))
+    {
+        string token = "";
+        if (!string.IsNullOrWhiteSpace(arguments.Token))
+        {
+            token = arguments.Token;
+        }
+        else
+        {
+            Console.Write($"Enter your token here: ");
+            token = Console.ReadLine();
+            Console.WriteLine();
+        }
+
+        Console.WriteLine($"Modifying selected favorite\n");
+        WaifuImFavorite favorite = await client.ToggleFavoriteAsync(arguments.Token, new WaifuImFavoriteSettings() { ImageId = image.ImageId.Value });
+    }
 }
 catch (Exception ex)
 {
     Console.WriteLine("An error occurred with this program: " + ex.Message);
-    Console.WriteLine("Press any key to exit.");
     Console.ReadKey();
-    Environment.Exit(0);
 }
+
