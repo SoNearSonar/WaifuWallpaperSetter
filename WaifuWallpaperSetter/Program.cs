@@ -63,7 +63,7 @@ try
         imageList = await client.GetImagesAsync(settings);
     }
 
-    WaifuImImage image = imageList.Images[randomImageNumber.Next(imageList.Images.Count)];
+    WaifuImImage image = imageList.Images[0];
     string extension = (arguments.OnlyGif.HasValue && arguments.OnlyGif.HasValue) ? ".gif" : image.Extension;
     string location = !string.IsNullOrWhiteSpace(arguments.ImageLocation) && Directory.Exists(arguments.ImageLocation) ? arguments.ImageLocation : Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
     string path = Path.Combine(location, $"image_{image.ImageId}{extension}");

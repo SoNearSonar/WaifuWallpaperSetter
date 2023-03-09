@@ -35,12 +35,6 @@ namespace WaifuWallpaperSetter.Objects
         [Option(longName: "favorites", Required = false, HelpText = "Only look from favorites (required token to be added)", Default = null)]
         public bool? OnlyFavorites { get; set; }
 
-        [Option(longName: "many", Required = false, HelpText = "Pick from a list of maximum 30 images with an image search", Default = null)]
-        public bool? ManyFiles { get; set; }
-
-        [Option(longName: "full", Required = false, HelpText = "Pick from a list of all results for an image search (admins only)", Default = null)]
-        public bool? FullResult { get; set; }
-
         [Option(longName: "fit", Required = false, HelpText = "The re-sizing that takes place when the image that is added to the desktop", Default = null)]
         public Wallpaper.Style? Fit { get; set; }
 
