@@ -41,9 +41,6 @@ namespace WaifuWallpaperSetter.Objects
         [Option(longName: "fit", Required = false, HelpText = "The re-sizing that takes place when the image that is added to the desktop", Default = null)]
         public Wallpaper.Style? Fit { get; set; }
 
-        [Option(longName: "autofit", Required = false, HelpText = "If the program should determine the right sizing fit for the wallpaper", Default = null)]
-        public bool AutoFit { get; set; }
-
         [Option(longName: "imageloc", Required = false, HelpText = "Location of path to save downloaded image from search to", Default = null)]
         public string ImageLocation { get; set; }
 

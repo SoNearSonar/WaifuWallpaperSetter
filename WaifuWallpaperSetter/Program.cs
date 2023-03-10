@@ -43,7 +43,7 @@ bool isNotCompatibleWindowsPlatform = Environment.OSVersion.Version.Major + Envi
 
 if (isNotWindowsPlatform || isNotCompatibleWindowsPlatform)
 {
-    Console.WriteLine("You can only run this program on Windows 8 or later");
+    Console.WriteLine("You can only run this program on Windows 8 or higher");
     Console.ReadKey();
     Environment.Exit(0);
 }
@@ -66,7 +66,7 @@ try
     }
 
     WaifuImImage image = imageList.Images[0];
-    string extension = (arguments.OnlyGif.HasValue && arguments.OnlyGif.HasValue) ? ".gif" : image.Extension;
+    string extension = image.Extension;
     string location = !string.IsNullOrWhiteSpace(arguments.ImageLocation) && Directory.Exists(arguments.ImageLocation) ? arguments.ImageLocation : Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
     string path = Path.Combine(location, $"image_{image.ImageId}{extension}");
 
@@ -89,7 +89,6 @@ try
     await File.WriteAllBytesAsync(path, wallpaperImage);
 
     Wallpaper.Style style = Wallpaper.Style.Fill;
-
     if (image.Height > image.Width)
     {
         style = Wallpaper.Style.Fit;
@@ -104,9 +103,8 @@ try
 
     if (arguments.Token != null && !arguments.NoPrompt)
     {
-        string favoriteToggle = !isInFavorites ? "add" : "remove";
-        string wording = !isInFavorites ? "to" : "from";
-        Console.Write($"Would you like to {favoriteToggle} this image {wording} your favorites? (Type y or n)\nYour choice: ");
+        string descriptor = !isInFavorites ? "added to" : "removed from";
+        Console.Write($"Would you like for this image to be {descriptor} your favorites? (Type y or n)\nYour choice: ");
         char c = Console.ReadKey().KeyChar;
         Console.WriteLine();
         Console.WriteLine();
@@ -120,7 +118,7 @@ try
 }
 catch (Exception ex)
 {
-    Console.WriteLine("An error occurred with this program: " + ex.Message);
+    Console.WriteLine($"An error occurred with this program: {ex.Message}");
     Console.ReadKey();
 }
 

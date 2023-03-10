@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaifuWallpaperSetter", "WaifuWallpaperSetter\WaifuWallpaperSetter.csproj", "{724BA7B4-A2F5-4514-AA02-386FB5A06E25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaifuWallpaperSetter-GUI", "WaifuWallpaperSetter-GUI\WaifuWallpaperSetter-GUI.csproj", "{DBB5BAE1-302A-44A7-8617-CB8875FCBCF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{724BA7B4-A2F5-4514-AA02-386FB5A06E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{724BA7B4-A2F5-4514-AA02-386FB5A06E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{724BA7B4-A2F5-4514-AA02-386FB5A06E25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBB5BAE1-302A-44A7-8617-CB8875FCBCF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBB5BAE1-302A-44A7-8617-CB8875FCBCF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBB5BAE1-302A-44A7-8617-CB8875FCBCF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBB5BAE1-302A-44A7-8617-CB8875FCBCF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
