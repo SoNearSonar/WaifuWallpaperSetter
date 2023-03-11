@@ -93,7 +93,7 @@
             TXT_ExcludedFiles.Location = new Point(91, 107);
             TXT_ExcludedFiles.Name = "TXT_ExcludedFiles";
             TXT_ExcludedFiles.Size = new Size(259, 23);
-            TXT_ExcludedFiles.TabIndex = 15;
+            TXT_ExcludedFiles.TabIndex = 8;
             // 
             // label7
             // 
@@ -101,7 +101,7 @@
             label7.Location = new Point(10, 110);
             label7.Name = "label7";
             label7.Size = new Size(77, 15);
-            label7.TabIndex = 14;
+            label7.TabIndex = 7;
             label7.Text = "Exclude Files:";
             // 
             // TXT_IncludedFiles
@@ -109,7 +109,7 @@
             TXT_IncludedFiles.Location = new Point(91, 78);
             TXT_IncludedFiles.Name = "TXT_IncludedFiles";
             TXT_IncludedFiles.Size = new Size(259, 23);
-            TXT_IncludedFiles.TabIndex = 13;
+            TXT_IncludedFiles.TabIndex = 6;
             // 
             // label8
             // 
@@ -117,7 +117,7 @@
             label8.Location = new Point(10, 81);
             label8.Name = "label8";
             label8.Size = new Size(75, 15);
-            label8.TabIndex = 12;
+            label8.TabIndex = 5;
             label8.Text = "Include Files:";
             // 
             // label6
@@ -137,7 +137,7 @@
             CBX_Orientation.Location = new Point(91, 165);
             CBX_Orientation.Name = "CBX_Orientation";
             CBX_Orientation.Size = new Size(259, 23);
-            CBX_Orientation.TabIndex = 10;
+            CBX_Orientation.TabIndex = 12;
             // 
             // label5
             // 
@@ -156,7 +156,7 @@
             CBX_OrderBy.Location = new Point(91, 136);
             CBX_OrderBy.Name = "CBX_OrderBy";
             CBX_OrderBy.Size = new Size(259, 23);
-            CBX_OrderBy.TabIndex = 8;
+            CBX_OrderBy.TabIndex = 10;
             // 
             // label4
             // 
@@ -164,7 +164,7 @@
             label4.Location = new Point(10, 230);
             label4.Name = "label4";
             label4.Size = new Size(78, 15);
-            label4.TabIndex = 7;
+            label4.TabIndex = 15;
             label4.Text = "Only GIF Files";
             // 
             // CHK_OnlyGif
@@ -173,7 +173,7 @@
             CHK_OnlyGif.Location = new Point(210, 231);
             CHK_OnlyGif.Name = "CHK_OnlyGif";
             CHK_OnlyGif.Size = new Size(15, 14);
-            CHK_OnlyGif.TabIndex = 6;
+            CHK_OnlyGif.TabIndex = 16;
             CHK_OnlyGif.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -182,7 +182,7 @@
             label3.Location = new Point(10, 202);
             label3.Name = "label3";
             label3.Size = new Size(91, 15);
-            label3.TabIndex = 5;
+            label3.TabIndex = 13;
             label3.Text = "NSFW Searches:";
             // 
             // CHK_NsfwResults
@@ -191,7 +191,7 @@
             CHK_NsfwResults.Location = new Point(210, 203);
             CHK_NsfwResults.Name = "CHK_NsfwResults";
             CHK_NsfwResults.Size = new Size(15, 14);
-            CHK_NsfwResults.TabIndex = 4;
+            CHK_NsfwResults.TabIndex = 14;
             CHK_NsfwResults.UseVisualStyleBackColor = true;
             // 
             // TXT_ExcludedTags
@@ -199,7 +199,7 @@
             TXT_ExcludedTags.Location = new Point(91, 49);
             TXT_ExcludedTags.Name = "TXT_ExcludedTags";
             TXT_ExcludedTags.Size = new Size(259, 23);
-            TXT_ExcludedTags.TabIndex = 3;
+            TXT_ExcludedTags.TabIndex = 4;
             // 
             // label2
             // 
@@ -207,7 +207,7 @@
             label2.Location = new Point(10, 52);
             label2.Name = "label2";
             label2.Size = new Size(77, 15);
-            label2.TabIndex = 2;
+            label2.TabIndex = 3;
             label2.Text = "Exclude Tags:";
             // 
             // TXT_IncludedTags
@@ -215,7 +215,7 @@
             TXT_IncludedTags.Location = new Point(91, 20);
             TXT_IncludedTags.Name = "TXT_IncludedTags";
             TXT_IncludedTags.Size = new Size(259, 23);
-            TXT_IncludedTags.TabIndex = 1;
+            TXT_IncludedTags.TabIndex = 2;
             // 
             // label1
             // 
@@ -223,7 +223,7 @@
             label1.Location = new Point(10, 23);
             label1.Name = "label1";
             label1.Size = new Size(75, 15);
-            label1.TabIndex = 0;
+            label1.TabIndex = 1;
             label1.Text = "Include Tags:";
             // 
             // groupBox2
@@ -236,7 +236,7 @@
             groupBox2.Location = new Point(387, 1);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(368, 134);
-            groupBox2.TabIndex = 1;
+            groupBox2.TabIndex = 17;
             groupBox2.TabStop = false;
             groupBox2.Text = "Wallpaper Information";
             // 
@@ -245,7 +245,7 @@
             BTN_Open.Location = new Point(296, 42);
             BTN_Open.Name = "BTN_Open";
             BTN_Open.Size = new Size(58, 23);
-            BTN_Open.TabIndex = 22;
+            BTN_Open.TabIndex = 20;
             BTN_Open.Text = "Open";
             BTN_Open.UseVisualStyleBackColor = true;
             BTN_Open.Click += BTN_Open_Click;
@@ -256,7 +256,7 @@
             label11.Location = new Point(14, 75);
             label11.Name = "label11";
             label11.Size = new Size(79, 15);
-            label11.TabIndex = 17;
+            label11.TabIndex = 21;
             label11.Text = "Wallpaper Fit:";
             // 
             // CBX_WallpaperFit
@@ -267,14 +267,14 @@
             CBX_WallpaperFit.Location = new Point(123, 71);
             CBX_WallpaperFit.Name = "CBX_WallpaperFit";
             CBX_WallpaperFit.Size = new Size(231, 23);
-            CBX_WallpaperFit.TabIndex = 16;
+            CBX_WallpaperFit.TabIndex = 22;
             // 
             // TXT_ImageLocation
             // 
             TXT_ImageLocation.Location = new Point(123, 42);
             TXT_ImageLocation.Name = "TXT_ImageLocation";
             TXT_ImageLocation.Size = new Size(167, 23);
-            TXT_ImageLocation.TabIndex = 17;
+            TXT_ImageLocation.TabIndex = 19;
             // 
             // label9
             // 
@@ -282,7 +282,7 @@
             label9.Location = new Point(14, 45);
             label9.Name = "label9";
             label9.Size = new Size(103, 15);
-            label9.TabIndex = 16;
+            label9.TabIndex = 18;
             label9.Text = "Download Folder::";
             // 
             // groupBox3
@@ -294,7 +294,7 @@
             groupBox3.Location = new Point(387, 138);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(368, 122);
-            groupBox3.TabIndex = 18;
+            groupBox3.TabIndex = 23;
             groupBox3.TabStop = false;
             groupBox3.Text = "User Information";
             // 
@@ -304,7 +304,7 @@
             label12.Location = new Point(11, 74);
             label12.Name = "label12";
             label12.Size = new Size(85, 15);
-            label12.TabIndex = 19;
+            label12.TabIndex = 26;
             label12.Text = "Only Favorites:";
             // 
             // CHK_OnlyFavorites
@@ -313,7 +313,7 @@
             CHK_OnlyFavorites.Location = new Point(215, 75);
             CHK_OnlyFavorites.Name = "CHK_OnlyFavorites";
             CHK_OnlyFavorites.Size = new Size(15, 14);
-            CHK_OnlyFavorites.TabIndex = 18;
+            CHK_OnlyFavorites.TabIndex = 27;
             CHK_OnlyFavorites.UseVisualStyleBackColor = true;
             // 
             // TXT_Token
@@ -321,7 +321,7 @@
             TXT_Token.Location = new Point(108, 42);
             TXT_Token.Name = "TXT_Token";
             TXT_Token.Size = new Size(242, 23);
-            TXT_Token.TabIndex = 17;
+            TXT_Token.TabIndex = 25;
             // 
             // label14
             // 
@@ -329,7 +329,7 @@
             label14.Location = new Point(10, 45);
             label14.Name = "label14";
             label14.Size = new Size(41, 15);
-            label14.TabIndex = 16;
+            label14.TabIndex = 24;
             label14.Text = "Token:";
             // 
             // BTN_DownloadSetWallpaper
@@ -337,7 +337,7 @@
             BTN_DownloadSetWallpaper.Location = new Point(311, 266);
             BTN_DownloadSetWallpaper.Name = "BTN_DownloadSetWallpaper";
             BTN_DownloadSetWallpaper.Size = new Size(165, 23);
-            BTN_DownloadSetWallpaper.TabIndex = 21;
+            BTN_DownloadSetWallpaper.TabIndex = 28;
             BTN_DownloadSetWallpaper.Text = "Download + Set Wallpaper";
             BTN_DownloadSetWallpaper.UseVisualStyleBackColor = true;
             BTN_DownloadSetWallpaper.Click += BTN_DownloadSetWallpaper_Click;
