@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WaifuWallpaperSetter));
             groupBox1 = new GroupBox();
             TXT_ExcludedFiles = new TextBox();
             label7 = new Label();
@@ -46,6 +47,7 @@
             TXT_IncludedTags = new TextBox();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            BTN_Open = new Button();
             label11 = new Label();
             CBX_WallpaperFit = new ComboBox();
             TXT_ImageLocation = new TextBox();
@@ -56,7 +58,6 @@
             TXT_Token = new TextBox();
             label14 = new Label();
             BTN_DownloadSetWallpaper = new Button();
-            BTN_Open = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -239,6 +240,16 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Wallpaper Information";
             // 
+            // BTN_Open
+            // 
+            BTN_Open.Location = new Point(296, 42);
+            BTN_Open.Name = "BTN_Open";
+            BTN_Open.Size = new Size(58, 23);
+            BTN_Open.TabIndex = 22;
+            BTN_Open.Text = "Open";
+            BTN_Open.UseVisualStyleBackColor = true;
+            BTN_Open.Click += BTN_Open_Click;
+            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -331,16 +342,6 @@
             BTN_DownloadSetWallpaper.UseVisualStyleBackColor = true;
             BTN_DownloadSetWallpaper.Click += BTN_DownloadSetWallpaper_Click;
             // 
-            // BTN_Open
-            // 
-            BTN_Open.Location = new Point(296, 42);
-            BTN_Open.Name = "BTN_Open";
-            BTN_Open.Size = new Size(58, 23);
-            BTN_Open.TabIndex = 22;
-            BTN_Open.Text = "Open";
-            BTN_Open.UseVisualStyleBackColor = true;
-            BTN_Open.Click += BTN_Open_Click;
-            // 
             // WaifuWallpaperSetter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -350,6 +351,7 @@
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "WaifuWallpaperSetter";
             Text = "Waifu Wallpaper Setter";
             FormClosing += WaifuWallpaperSetter_FormClosing;
