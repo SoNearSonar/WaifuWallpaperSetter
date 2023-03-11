@@ -3,15 +3,14 @@ WaifuWallpaperSetter has an included version as a barebones console with optiona
 
 ### Parameters:
 ```
---token (text) - Specifies the account to modify favorites to (Requires an account on [here](https://waifu.im))
+--token (text) - Specifies the account to modify favorites to (Requires an account on waifu.im)
 --userid (number) - Specifies the user to modify favorites for (if authorized)
---includetags (Waifu Maid etc) - Specifies the images with tags to include when searching ([see](https://github.com/SoNearSonar/WaifuImAPI-NET/blob/main/WaifuImAPI-NET/Models/Enums/Tags.cs))
---excludetags (Waifu Maid etc) - Specifies the images with tags to not include when searching ([see](https://github.com/SoNearSonar/WaifuImAPI-NET/blob/main/WaifuImAPI-NET/Models/Enums/Tags.cs))
+--includetags (Waifu Maid etc) - Specifies the images with tags to include when searching 
+--excludetags (Waifu Maid etc) - Specifies the images with tags to not include when searching
 --nsfw (true/false) - Specifies if the images should also be not safe for work
 --gif (true/false) - Specifies if the images should only be in .GIF file format
 --order (Favorites, UploadedAt, Random, LikedAt) - Specifies the order in which images in a search should be
-([see](https://github.com/SoNearSonar/WaifuImAPI-NET/blob/main/WaifuImAPI-NET/Models/Enums/Order.cs))
---orientation (Landscape, Portrait) - Specifies the rotation the returned images should be ([see](https://github.com/SoNearSonar/WaifuImAPI-NET/blob/main/WaifuImAPI-NET/Models/Enums/Orientation.cs))
+--orientation (Landscape, Portrait) - Specifies the rotation the returned images should be
 --includefiles (file1.png file2.jpg etc) - Specifies the image files to include in the search
 --excludefiles (file1.png file2.jpg etc) - Specifies the image files to exclude in the search
 --favorites (true/false) - Specifies if the search should only look at your favorites (Requires token)
