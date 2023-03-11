@@ -1,4 +1,4 @@
-# Using WaifuWallpaperSetter Console
+# Using WaifuWallpaperSetter
 WaifuWallpaperSetter has an included version as a Windows application. It is a simple interface for users to go through (with persistent user input!). Below are some tips for formatting certain fields:
 
 ### Fields:
