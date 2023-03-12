@@ -65,15 +65,25 @@ namespace WaifuWallpaperSetter_GUI
                     OnlyGif = CHK_OnlyGif.Checked
                 };
 
-                WaifuImImageList list = await client.GetImagesAsync(settings);
+                WaifuImImageList list = new WaifuImImageList();
+                if (CHK_OnlyFavorites.Checked && !string.IsNullOrWhiteSpace(TXT_Token.Text))
+                {
+                    list = await client.GetFavoritesAsync(TXT_Token.Text, settings);
+                }
+                else
+                {
+                    CHK_OnlyFavorites.Checked = false;
+                    list = await client.GetImagesAsync(settings);
+                }
+                
                 WaifuImImage image = list.Images[0];
                 string extension = image.Extension;
                 string location = !string.IsNullOrWhiteSpace(TXT_ImageLocation.Text) && Directory.Exists(TXT_ImageLocation.Text) ? TXT_ImageLocation.Text : Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
                 string path = Path.Combine(location, $"image_{image.ImageId}{extension}");
                 bool hasToken = !string.IsNullOrWhiteSpace(TXT_Token.Text);
 
-                bool isInFavorites = false;
-                if (hasToken)
+                bool isInFavorites = CHK_OnlyFavorites.Checked && hasToken;
+                if (!CHK_OnlyFavorites.Checked && hasToken)
                 {
                     list = await client.GetFavoritesAsync(TXT_Token.Text, settings);
                     foreach (WaifuImImage img in list.Images)
@@ -101,17 +111,18 @@ namespace WaifuWallpaperSetter_GUI
                     style = overrideStyle.Value;
                 }
 
-                //Wallpaper.Set(path, style);
+                Wallpaper.Set(path, style);
                 MessageBox.Show("Wallpaper has been set!", "Set wallpaper", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 if (hasToken)
                 {
-                    string descriptor = !isInFavorites ? "removed from" : "added to";
-                    DialogResult result = MessageBox.Show($"Would you like this to be {descriptor} your favorites?", "Add to favorites?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    string messageDescriptor = isInFavorites ? "removed from" : "added to";
+                    string titleDescriptor = isInFavorites ? "Remove from" : "Add to";
+                    DialogResult result = MessageBox.Show($"Would you like this to be {messageDescriptor} your favorites?", $"{titleDescriptor} favorites?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         await client.InsertFavoriteAsync(TXT_Token.Text, new WaifuImFavoriteSettings() { ImageId = image.ImageId.Value });
-                        MessageBox.Show($"Image has been {descriptor} your favorites", "Favorite modified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Image has been {messageDescriptor} your favorites", "Favorite modified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
