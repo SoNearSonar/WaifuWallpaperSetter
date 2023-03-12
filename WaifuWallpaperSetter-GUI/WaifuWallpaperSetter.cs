@@ -75,7 +75,7 @@ namespace WaifuWallpaperSetter_GUI
                     CHK_OnlyFavorites.Checked = false;
                     list = await client.GetImagesAsync(settings);
                 }
-                
+
                 WaifuImImage image = list.Images[0];
                 string extension = image.Extension;
                 string location = !string.IsNullOrWhiteSpace(TXT_ImageLocation.Text) && Directory.Exists(TXT_ImageLocation.Text) ? TXT_ImageLocation.Text : Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);

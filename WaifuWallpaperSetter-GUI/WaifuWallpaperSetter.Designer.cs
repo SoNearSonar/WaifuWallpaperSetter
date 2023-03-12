@@ -351,7 +351,11 @@
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MaximumSize = new Size(783, 337);
+            MinimumSize = new Size(783, 337);
             Name = "WaifuWallpaperSetter";
             Text = "Waifu Wallpaper Setter";
             FormClosing += WaifuWallpaperSetter_FormClosing;
