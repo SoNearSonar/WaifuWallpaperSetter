@@ -1,5 +1,5 @@
 ﻿using CommandLine;
-using WaifuImAPI_NET.Models.Enums;
+using WaifuImAPI_NET.Models;
 
 namespace WaifuWallpaperSetter.Objects
 {

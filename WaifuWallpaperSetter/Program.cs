@@ -1,8 +1,7 @@
 ﻿using CommandLine;
 using CommandLine.Text;
 using WaifuImAPI_NET;
-using WaifuImAPI_NET.Models.Objects;
-using WaifuImAPI_NET.Models.Objects.Lists;
+using WaifuImAPI_NET.Models;
 using WaifuWallpaperSetter.Objects;
 using WaifuWallpaperSetter.Utilities;
 
@@ -112,7 +111,7 @@ try
         if (c.ToString().ToLowerInvariant().Equals("y"))
         {
             ConsoleTextDisplayer.DisplayConsoleText($"Modifying selected favorite (Program will exit automatically when done)\n", arguments.NoPrompt);
-            WaifuImFavorite favorite = await client.ToggleFavoriteAsync(arguments.Token, new WaifuImFavoriteSettings() { ImageId = image.ImageId.Value });
+            WaifuImFavorite favorite = await client.ToggleFavoriteAsync(arguments.Token, new WaifuImFavoriteSettings() { ImageId = image.ImageId });
         }
     }
 }

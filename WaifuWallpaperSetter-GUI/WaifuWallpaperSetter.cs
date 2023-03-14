@@ -1,8 +1,6 @@
 using Ookii.Dialogs.WinForms;
 using WaifuImAPI_NET;
-using WaifuImAPI_NET.Models.Enums;
-using WaifuImAPI_NET.Models.Objects;
-using WaifuImAPI_NET.Models.Objects.Lists;
+using WaifuImAPI_NET.Models;
 
 namespace WaifuWallpaperSetter_GUI
 {
@@ -121,7 +119,7 @@ namespace WaifuWallpaperSetter_GUI
                     DialogResult result = MessageBox.Show($"Would you like this to be {messageDescriptor} your favorites?", $"{titleDescriptor} favorites?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        await client.InsertFavoriteAsync(TXT_Token.Text, new WaifuImFavoriteSettings() { ImageId = image.ImageId.Value });
+                        await client.InsertFavoriteAsync(TXT_Token.Text, new WaifuImFavoriteSettings() { ImageId = image.ImageId });
                         MessageBox.Show($"Image has been {messageDescriptor} your favorites", "Favorite modified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -167,9 +165,9 @@ namespace WaifuWallpaperSetter_GUI
             }
         }
 
-        private WaifuImAPI_NET.Models.Enums.Orientation? GetOrientation(string value)
+        private WaifuImAPI_NET.Models.Orientation? GetOrientation(string value)
         {
-            return Enum.TryParse(value, out WaifuImAPI_NET.Models.Enums.Orientation order) ? order : null;
+            return Enum.TryParse(value, out WaifuImAPI_NET.Models.Orientation order) ? order : null;
         }
 
         private Order? GetOrder(string value)
