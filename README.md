@@ -13,3 +13,4 @@ This application is only designed for Windows 8 or higher (Some wallpaper fit op
 ## Documentation:
 - [Console](Documentation/Console.md)
 - [Windows App](Documentation/GUI.md)
+- [Waifu.IM](https://www.waifu.im/docs)

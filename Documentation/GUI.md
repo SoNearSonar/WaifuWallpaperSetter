@@ -13,3 +13,6 @@ Exclude Files: File1.png,File2.jpg,etc
 ```
 Include Tags: Waifu Maid
 ```
+
+### Tag Reference:
+[Tags](https://www.waifu.im/docs/#tags)

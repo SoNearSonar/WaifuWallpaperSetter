@@ -24,3 +24,6 @@ WaifuWallpaperSetter has an included version as a barebones console with optiona
 WaifuWallpaperSetter.exe --includetags Waifu Maid --fit Fill --orientation Landscape --order Favorites 
 --nsfw false --imageloc "C:\"
 ```
+
+### Tag Reference:
+[Tags](https://www.waifu.im/docs/#tags)
