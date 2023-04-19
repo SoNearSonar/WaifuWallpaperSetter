@@ -44,7 +44,13 @@ namespace WaifuWallpaperSetter.Objects
         [Option(longName: "imageloc", Required = false, HelpText = "Location of path to save downloaded image from search to", Default = null)]
         public string ImageLocation { get; set; }
 
-        [Option(longName: "noprompt", Required = false, HelpText = "Don't display any message prompts ", Default = false)]
+        [Option(longName: "noprompt", Required = false, HelpText = "Don't display any message prompts", Default = false)]
         public bool NoPrompt { get; set; }
+
+        [Option(longName: "height", Required = false, HelpText = "Height size constraint images should be in", Default = null)]
+        public string Height { get; set; }
+
+        [Option(longName: "width", Required = false, HelpText = "Width size constraint images should be in", Default = null)]
+        public string Width { get; set; }
     }
 }

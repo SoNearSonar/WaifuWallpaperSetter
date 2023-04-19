@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WaifuWallpaperSetter));
             groupBox1 = new GroupBox();
+            TXT_WidthSize = new TextBox();
+            TXT_HeightSize = new TextBox();
+            label10 = new Label();
+            CBX_WidthOperator = new ComboBox();
+            label13 = new Label();
+            CBX_HeightOperator = new ComboBox();
             TXT_ExcludedFiles = new TextBox();
             label7 = new Label();
             TXT_IncludedFiles = new TextBox();
@@ -65,6 +71,12 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(TXT_WidthSize);
+            groupBox1.Controls.Add(TXT_HeightSize);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(CBX_WidthOperator);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(CBX_HeightOperator);
             groupBox1.Controls.Add(TXT_ExcludedFiles);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(TXT_IncludedFiles);
@@ -83,10 +95,64 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(9, 1);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(368, 259);
+            groupBox1.Size = new Size(368, 307);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Search Filters";
+            // 
+            // TXT_WidthSize
+            // 
+            TXT_WidthSize.Location = new Point(167, 223);
+            TXT_WidthSize.Name = "TXT_WidthSize";
+            TXT_WidthSize.Size = new Size(183, 23);
+            TXT_WidthSize.TabIndex = 22;
+            TXT_WidthSize.KeyPress += TXT_WidthSize_KeyPress;
+            // 
+            // TXT_HeightSize
+            // 
+            TXT_HeightSize.Location = new Point(167, 194);
+            TXT_HeightSize.Name = "TXT_HeightSize";
+            TXT_HeightSize.Size = new Size(183, 23);
+            TXT_HeightSize.TabIndex = 21;
+            TXT_HeightSize.KeyPress += TXT_HeightSize_KeyPress;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(10, 227);
+            label10.Name = "label10";
+            label10.Size = new Size(42, 15);
+            label10.TabIndex = 19;
+            label10.Text = "Width:";
+            // 
+            // CBX_WidthOperator
+            // 
+            CBX_WidthOperator.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBX_WidthOperator.FormattingEnabled = true;
+            CBX_WidthOperator.Items.AddRange(new object[] { "None", ">=", ">", "<=", "<", "!=", "=" });
+            CBX_WidthOperator.Location = new Point(91, 223);
+            CBX_WidthOperator.Name = "CBX_WidthOperator";
+            CBX_WidthOperator.Size = new Size(70, 23);
+            CBX_WidthOperator.TabIndex = 20;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(10, 198);
+            label13.Name = "label13";
+            label13.Size = new Size(46, 15);
+            label13.TabIndex = 17;
+            label13.Text = "Height:";
+            // 
+            // CBX_HeightOperator
+            // 
+            CBX_HeightOperator.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBX_HeightOperator.FormattingEnabled = true;
+            CBX_HeightOperator.Items.AddRange(new object[] { "None", ">=", ">", "<=", "<", "!=", "=" });
+            CBX_HeightOperator.Location = new Point(91, 194);
+            CBX_HeightOperator.Name = "CBX_HeightOperator";
+            CBX_HeightOperator.Size = new Size(70, 23);
+            CBX_HeightOperator.TabIndex = 18;
             // 
             // TXT_ExcludedFiles
             // 
@@ -133,7 +199,7 @@
             // 
             CBX_Orientation.DropDownStyle = ComboBoxStyle.DropDownList;
             CBX_Orientation.FormattingEnabled = true;
-            CBX_Orientation.Items.AddRange(new object[] { "No Preference", "Landscape", "Portrait" });
+            CBX_Orientation.Items.AddRange(new object[] { "No Preference", "Random", "Landscape", "Portrait" });
             CBX_Orientation.Location = new Point(91, 165);
             CBX_Orientation.Name = "CBX_Orientation";
             CBX_Orientation.Size = new Size(259, 23);
@@ -161,7 +227,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(10, 230);
+            label4.Location = new Point(10, 279);
             label4.Name = "label4";
             label4.Size = new Size(78, 15);
             label4.TabIndex = 15;
@@ -170,7 +236,7 @@
             // CHK_OnlyGif
             // 
             CHK_OnlyGif.AutoSize = true;
-            CHK_OnlyGif.Location = new Point(210, 231);
+            CHK_OnlyGif.Location = new Point(210, 280);
             CHK_OnlyGif.Name = "CHK_OnlyGif";
             CHK_OnlyGif.Size = new Size(15, 14);
             CHK_OnlyGif.TabIndex = 16;
@@ -179,7 +245,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(10, 202);
+            label3.Location = new Point(10, 254);
             label3.Name = "label3";
             label3.Size = new Size(91, 15);
             label3.TabIndex = 13;
@@ -188,7 +254,7 @@
             // CHK_NsfwResults
             // 
             CHK_NsfwResults.AutoSize = true;
-            CHK_NsfwResults.Location = new Point(210, 203);
+            CHK_NsfwResults.Location = new Point(210, 255);
             CHK_NsfwResults.Name = "CHK_NsfwResults";
             CHK_NsfwResults.Size = new Size(15, 14);
             CHK_NsfwResults.TabIndex = 14;
@@ -334,7 +400,7 @@
             // 
             // BTN_DownloadSetWallpaper
             // 
-            BTN_DownloadSetWallpaper.Location = new Point(311, 266);
+            BTN_DownloadSetWallpaper.Location = new Point(494, 275);
             BTN_DownloadSetWallpaper.Name = "BTN_DownloadSetWallpaper";
             BTN_DownloadSetWallpaper.Size = new Size(165, 23);
             BTN_DownloadSetWallpaper.TabIndex = 28;
@@ -346,7 +412,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(767, 298);
+            ClientSize = new Size(767, 314);
             Controls.Add(BTN_DownloadSetWallpaper);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -354,8 +420,6 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            MaximumSize = new Size(783, 337);
-            MinimumSize = new Size(783, 337);
             Name = "WaifuWallpaperSetter";
             Text = "Waifu Wallpaper Setter";
             FormClosing += WaifuWallpaperSetter_FormClosing;
@@ -400,5 +464,11 @@
         private Label label12;
         private CheckBox CHK_OnlyFavorites;
         private Button BTN_Open;
+        private Label label10;
+        private ComboBox CBX_WidthOperator;
+        private Label label13;
+        private ComboBox CBX_HeightOperator;
+        private TextBox TXT_WidthSize;
+        private TextBox TXT_HeightSize;
     }
 }

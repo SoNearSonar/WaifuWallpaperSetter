@@ -154,5 +154,53 @@ namespace WaifuWallpaperSetter_GUI.Properties {
                 this["OnlySearchFavorites"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int HeightOperatorIndex {
+            get {
+                return ((int)(this["HeightOperatorIndex"]));
+            }
+            set {
+                this["HeightOperatorIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int WidthOperatorIndex {
+            get {
+                return ((int)(this["WidthOperatorIndex"]));
+            }
+            set {
+                this["WidthOperatorIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HeightSize {
+            get {
+                return ((string)(this["HeightSize"]));
+            }
+            set {
+                this["HeightSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WidthSize {
+            get {
+                return ((string)(this["WidthSize"]));
+            }
+            set {
+                this["WidthSize"] = value;
+            }
+        }
     }
 }

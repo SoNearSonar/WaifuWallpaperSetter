@@ -24,6 +24,10 @@ namespace WaifuWallpaperSetter_GUI
             TXT_ImageLocation.Text = Properties.Settings.Default.ImageLocation;
             CBX_WallpaperFit.SelectedIndex = Properties.Settings.Default.WallpaperFitIndex;
             CHK_OnlyFavorites.Checked = Properties.Settings.Default.OnlySearchFavorites;
+            CBX_HeightOperator.SelectedIndex = Properties.Settings.Default.HeightOperatorIndex;
+            TXT_HeightSize.Text = Properties.Settings.Default.HeightSize.ToString();
+            CBX_WidthOperator.SelectedIndex = Properties.Settings.Default.WidthOperatorIndex;
+            TXT_WidthSize.Text = Properties.Settings.Default.WidthSize.ToString();
         }
 
         private void WaifuWallpaperSetter_FormClosing(object sender, FormClosingEventArgs e)
@@ -39,6 +43,10 @@ namespace WaifuWallpaperSetter_GUI
             Properties.Settings.Default.ImageLocation = TXT_ImageLocation.Text;
             Properties.Settings.Default.WallpaperFitIndex = CBX_WallpaperFit.SelectedIndex;
             Properties.Settings.Default.OnlySearchFavorites = CHK_OnlyFavorites.Checked;
+            Properties.Settings.Default.HeightOperatorIndex = CBX_HeightOperator.SelectedIndex;
+            Properties.Settings.Default.HeightSize = TXT_HeightSize.Text;
+            Properties.Settings.Default.WidthOperatorIndex = CBX_WidthOperator.SelectedIndex;
+            Properties.Settings.Default.WidthSize = TXT_WidthSize.Text;
             Properties.Settings.Default.Save();
         }
 
@@ -51,6 +59,8 @@ namespace WaifuWallpaperSetter_GUI
                 string[] excludedTags = !string.IsNullOrWhiteSpace(TXT_ExcludedTags.Text) ? TXT_ExcludedTags.Text.Replace(" ", "").Trim().Split(',') : null;
                 string[] includedFiles = !string.IsNullOrWhiteSpace(TXT_IncludedFiles.Text) ? TXT_IncludedFiles.Text.Replace(" ", "").Trim().Split(',') : null;
                 string[] excludedFiles = !string.IsNullOrWhiteSpace(TXT_ExcludedFiles.Text) ? TXT_ExcludedFiles.Text.Replace(" ", "").Trim().Split(',') : null;
+                string height = CBX_HeightOperator.SelectedIndex != 0 && !string.IsNullOrWhiteSpace(TXT_HeightSize.Text) ? $"{CBX_HeightOperator.SelectedItem}{TXT_HeightSize.Text}" : null;
+                string width = CBX_WidthOperator.SelectedIndex != 0 && !string.IsNullOrWhiteSpace(TXT_WidthSize.Text) ? $"{CBX_WidthOperator.SelectedItem}{TXT_WidthSize.Text}" : null;
                 WaifuImSearchSettings settings = new WaifuImSearchSettings()
                 {
                     IncludedTags = GetTags(includedTags),
@@ -60,7 +70,9 @@ namespace WaifuWallpaperSetter_GUI
                     OrderBy = GetOrder(CBX_OrderBy.SelectedItem.ToString()),
                     Orientation = GetOrientation(CBX_Orientation.SelectedItem.ToString()),
                     IsNsfw = CHK_NsfwResults.Checked,
-                    OnlyGif = CHK_OnlyGif.Checked
+                    OnlyGif = CHK_OnlyGif.Checked,
+                    Height = height,
+                    Width = width
                 };
 
                 WaifuImImageList list = new WaifuImImageList();
@@ -178,6 +190,22 @@ namespace WaifuWallpaperSetter_GUI
         private Wallpaper.Style? GetStyle(string value)
         {
             return Enum.TryParse(value, out Wallpaper.Style style) ? style : null;
+        }
+
+        private void TXT_HeightSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ((char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TXT_WidthSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ((char)Keys.Back))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
