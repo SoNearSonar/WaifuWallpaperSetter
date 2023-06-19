@@ -1,7 +1,7 @@
 # WaifuWallpaperSetter
 ## A C# application written in .NET for getting images from waifu.im and putting them as a desktop wallpaper. Also includes a console version
 
-![image](https://user-images.githubusercontent.com/122957887/224465710-fe5c8b9f-2678-4a1a-8350-b24978d8b583.png)
+![image](https://github.com/SoNearSonar/WaifuWallpaperSetter/assets/122957887/3cfa6be7-972a-42bb-89fe-3ba3aaf29fd5)
 
 ## Important
 This application is only designed for Windows 8 or higher (Some wallpaper fit options are not on Windows 7)
