@@ -347,9 +347,9 @@
             label9.AutoSize = true;
             label9.Location = new Point(14, 45);
             label9.Name = "label9";
-            label9.Size = new Size(103, 15);
+            label9.Size = new Size(100, 15);
             label9.TabIndex = 18;
-            label9.Text = "Download Folder::";
+            label9.Text = "Download Folder:";
             // 
             // groupBox3
             // 

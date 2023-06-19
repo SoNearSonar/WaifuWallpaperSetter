@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
-    <PackageReference Include="WaifuImAPI-NET" Version="1.2.0" />
+    <PackageReference Include="WaifuImAPI-NET" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

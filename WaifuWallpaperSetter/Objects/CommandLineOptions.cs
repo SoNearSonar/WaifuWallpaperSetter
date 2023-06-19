@@ -6,10 +6,10 @@ namespace WaifuWallpaperSetter.Objects
     public class CommandLineOptions
     {
         [Option(longName: "token", Required = false, HelpText = "Token used for favorites", Default = null)]
-        public string Token { get; set; }
+        public string? Token { get; set; }
 
         [Option(longName: "userid", Required = false, HelpText = "User ID", Default = null)]
-        public uint UserId { get; set; }
+        public uint? UserId { get; set; }
 
         [Option(longName: "includetags", Required = false, HelpText = "Tags to include with image searches", Default = null)]
         public IEnumerable<Tags>? IncludedTags { get; set; }
@@ -42,15 +42,15 @@ namespace WaifuWallpaperSetter.Objects
         public Wallpaper.Style? Fit { get; set; }
 
         [Option(longName: "imageloc", Required = false, HelpText = "Location of path to save downloaded image from search to", Default = null)]
-        public string ImageLocation { get; set; }
+        public string? ImageLocation { get; set; }
 
         [Option(longName: "noprompt", Required = false, HelpText = "Don't display any message prompts", Default = false)]
         public bool NoPrompt { get; set; }
 
         [Option(longName: "height", Required = false, HelpText = "Height size constraint images should be in", Default = null)]
-        public string Height { get; set; }
+        public string? Height { get; set; }
 
         [Option(longName: "width", Required = false, HelpText = "Width size constraint images should be in", Default = null)]
-        public string Width { get; set; }
+        public string? Width { get; set; }
     }
 }

@@ -14,7 +14,6 @@ Parser.Default.ParseArguments<CommandLineOptions>(args)
 .WithParsed(options => {
     settings = new WaifuImSearchSettings()
     {
-        UserId = options.UserId,
         IncludedTags = options.IncludedTags.ToArray(),
         ExcludedTags = options.ExcludedTags.ToArray(),
         IsNsfw = options.IsNsfw,
@@ -47,7 +46,7 @@ if (isNotWindowsPlatform || isNotCompatibleWindowsPlatform)
     Environment.Exit(0);
 }
 
-WaifuImClient client = new WaifuImClient();
+WaifuImClient client = new WaifuImClient(!string.IsNullOrWhiteSpace(arguments.Token) ? arguments.Token : string.Empty);
 WaifuImImageList imageList = null;
 Random randomImageNumber = new Random();
 
@@ -56,7 +55,7 @@ try
     if (arguments != null && (arguments.OnlyFavorites.HasValue && arguments.OnlyFavorites.Value) && !string.IsNullOrWhiteSpace(arguments.Token))
     {
         ConsoleTextDisplayer.DisplayConsoleText("Getting wallpaper from your favorites on Waifu.Im\n", arguments.NoPrompt);
-        imageList = await client.GetFavoritesAsync(arguments.Token, settings);
+        imageList = await client.GetFavoritesAsync(settings);
     }
     else
     {
@@ -72,7 +71,7 @@ try
     bool isInFavorites = false;
     if (arguments.Token != null)
     {
-        imageList = await client.GetFavoritesAsync(arguments.Token, settings);
+        imageList = await client.GetFavoritesAsync(settings);
         foreach (WaifuImImage img in imageList.Images)
         {
             if (img.ImageId == image.ImageId)
@@ -111,7 +110,7 @@ try
         if (c.ToString().ToLowerInvariant().Equals("y"))
         {
             ConsoleTextDisplayer.DisplayConsoleText($"Modifying selected favorite (Program will exit automatically when done)\n", arguments.NoPrompt);
-            WaifuImFavorite favorite = await client.ToggleFavoriteAsync(arguments.Token, new WaifuImFavoriteSettings() { ImageId = image.ImageId });
+            WaifuImFavorite favorite = await client.ToggleFavoriteAsync(new WaifuImFavoriteSettings() { ImageId = image.ImageId });
         }
     }
 }

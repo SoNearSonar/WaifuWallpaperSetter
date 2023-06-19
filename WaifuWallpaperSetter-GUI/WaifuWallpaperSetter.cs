@@ -54,7 +54,7 @@ namespace WaifuWallpaperSetter_GUI
         {
             try
             {
-                WaifuImClient client = new WaifuImClient();
+                WaifuImClient client = new WaifuImClient(!string.IsNullOrWhiteSpace(TXT_Token.Text) ? TXT_Token.Text : string.Empty);
                 string[] includedTags = !string.IsNullOrWhiteSpace(TXT_IncludedTags.Text) ? TXT_IncludedTags.Text.Replace(" ", "").Trim().Split(',') : null;
                 string[] excludedTags = !string.IsNullOrWhiteSpace(TXT_ExcludedTags.Text) ? TXT_ExcludedTags.Text.Replace(" ", "").Trim().Split(',') : null;
                 string[] includedFiles = !string.IsNullOrWhiteSpace(TXT_IncludedFiles.Text) ? TXT_IncludedFiles.Text.Replace(" ", "").Trim().Split(',') : null;
@@ -78,7 +78,7 @@ namespace WaifuWallpaperSetter_GUI
                 WaifuImImageList list = new WaifuImImageList();
                 if (CHK_OnlyFavorites.Checked && !string.IsNullOrWhiteSpace(TXT_Token.Text))
                 {
-                    list = await client.GetFavoritesAsync(TXT_Token.Text, settings);
+                    list = await client.GetFavoritesAsync(settings);
                 }
                 else
                 {
@@ -95,7 +95,7 @@ namespace WaifuWallpaperSetter_GUI
                 bool isInFavorites = CHK_OnlyFavorites.Checked && hasToken;
                 if (!CHK_OnlyFavorites.Checked && hasToken)
                 {
-                    list = await client.GetFavoritesAsync(TXT_Token.Text, settings);
+                    list = await client.GetFavoritesAsync(settings);
                     foreach (WaifuImImage img in list.Images)
                     {
                         if (img.ImageId == image.ImageId)
@@ -131,7 +131,7 @@ namespace WaifuWallpaperSetter_GUI
                     DialogResult result = MessageBox.Show($"Would you like this to be {messageDescriptor} your favorites?", $"{titleDescriptor} favorites?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        await client.InsertFavoriteAsync(TXT_Token.Text, new WaifuImFavoriteSettings() { ImageId = image.ImageId });
+                        await client.InsertFavoriteAsync(new WaifuImFavoriteSettings() { ImageId = image.ImageId });
                         MessageBox.Show($"Image has been {messageDescriptor} your favorites", "Favorite modified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
