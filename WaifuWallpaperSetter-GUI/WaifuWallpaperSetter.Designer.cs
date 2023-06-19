@@ -376,7 +376,7 @@
             // CHK_OnlyFavorites
             // 
             CHK_OnlyFavorites.AutoSize = true;
-            CHK_OnlyFavorites.Location = new Point(215, 75);
+            CHK_OnlyFavorites.Location = new Point(231, 75);
             CHK_OnlyFavorites.Name = "CHK_OnlyFavorites";
             CHK_OnlyFavorites.Size = new Size(15, 14);
             CHK_OnlyFavorites.TabIndex = 27;
@@ -384,9 +384,9 @@
             // 
             // TXT_Token
             // 
-            TXT_Token.Location = new Point(108, 42);
+            TXT_Token.Location = new Point(123, 42);
             TXT_Token.Name = "TXT_Token";
-            TXT_Token.Size = new Size(242, 23);
+            TXT_Token.Size = new Size(231, 23);
             TXT_Token.TabIndex = 25;
             // 
             // label14
