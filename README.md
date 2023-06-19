@@ -8,7 +8,7 @@ This application is only designed for Windows 8 or higher (Some wallpaper fit op
 
 ## Credits:
 - [Buco](https://github.com/Buco7854) - [Waifu.IM](https://www.waifu.im)
-- Myself - [WaifuImAPI-NET](https://github.com/SoNearSonar/WaifuImAPI-NET)
+- [Myself](https://github.com/SoNearSonar) - [WaifuImAPI-NET](https://github.com/SoNearSonar/WaifuImAPI-NET)
 
 ## Documentation:
 - [Console](Documentation/Console.md)
