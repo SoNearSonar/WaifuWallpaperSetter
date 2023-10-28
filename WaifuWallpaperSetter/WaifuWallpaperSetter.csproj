@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="WaifuImAPI-NET" Version="2.0.0" />
+    <PackageReference Include="WaifuImAPI-NET" Version="2.0.1" />
   </ItemGroup>
 
 </Project>
