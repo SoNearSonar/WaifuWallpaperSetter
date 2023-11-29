@@ -1,5 +1,5 @@
 # Using WaifuWallpaperSetter Console
-WaifuWallpaperSetter has an included version as a barebones console with optional search parameters. The program can be run as is from the .exe or from a .bat (match) script. Below are the parameters you can add to a .bat script:
+WaifuWallpaperSetter has an included version as a barebones console with optional search parameters. The program can be run as is from the .exe or from a .bat (batch) script. Below are the parameters you can add to a .bat script:
 
 ### Parameters:
 ```
